@@ -1,0 +1,203 @@
+:root {
+    --primary-blue: #0066ff;
+    --secondary-blue: #003366;
+    --accent-blue: #00ccff;
+    --dark-blue: #001a33;
+    --light-blue: #e6f3ff;
+    --gradient-blue: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: var(--gradient-blue) !important;
+    box-shadow: 0 2px 15px rgba(0, 102, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.main-container {
+    padding: 1.5rem;
+    height: calc(100vh - 72px); /* 减去导航栏高度 */
+    overflow-y: auto;
+}
+
+.network-container {
+    height: 100%;
+}
+
+.card {
+    background: rgba(0, 26, 51, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 204, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2);
+    border-radius: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    background: rgba(0, 51, 102, 0.5);
+    border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+    border-radius: 15px 15px 0 0 !important;
+    padding: 1rem;
+}
+
+.card-body {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.network-visualization {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.network-image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(0, 26, 51, 0.5);
+    width: 100%;
+    /* 设置固定的宽高比 16:9 */
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+}
+
+.network-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图像比例 */
+    background-color: rgba(0, 26, 51, 0.5);
+}
+
+.control-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control, .form-select {
+    background: rgba(0, 51, 102, 0.5);
+    border: 1px solid rgba(0, 204, 255, 0.2);
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(0, 51, 102, 0.7);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+    color: #ffffff;
+}
+
+.input-group-text {
+    background: rgba(0, 51, 102, 0.5);
+    border: 1px solid rgba(0, 204, 255, 0.2);
+    color: var(--accent-blue);
+}
+
+.btn-primary {
+    background: var(--gradient-blue);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+}
+
+.network-stats .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.path-info {
+    background: rgba(0, 51, 102, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* 加载动画样式 */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--accent-blue);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 添加动画效果 */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 204, 255, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(0, 204, 255, 0.2); }
+}
+
+.card {
+    animation: glow 3s infinite;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+}
+
+/* 调整网络容器的样式 */
+.network-container .card {
+    height: calc(100vh - 120px); /* 减去导航栏和边距的高度 */
+}
